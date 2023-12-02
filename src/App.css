@@ -1,0 +1,27 @@
+.animated-object {
+  animation: moveAnimation 2s ease-in-out;
+}
+
+@keyframes moveAnimation {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.animated-header {
+  animation: moveHeader 2s ease-in-out;
+}
+
+@keyframes moveHeader {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

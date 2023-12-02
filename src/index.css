@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: Unbound-black;
+    src: url(./assets/fonts/Unbounded-Black.ttf);
+};
+
+@font-face {
+    font-family: Unbound-bold;
+    src: url(./assets/fonts/Unbounded-Bold.ttf);
+};
+
+@font-face {
+    font-family: Unbound-extrabold;
+    src: url(./assets/fonts/Unbounded-ExtraBold.ttf);
+}
+
+@font-face {
+    font-family: Unbound-extraLight;
+    src: url(./assets/fonts/Unbounded-ExtraLight.ttf);
+}
+
+@font-face {
+    font-family: Unbound-light;
+    src: url(./assets/fonts/Unbounded-Light.ttf);
+}
+
+@font-face {
+    font-family: Unbound-medium;
+    src: url(./assets/fonts/Unbounded-Medium.ttf);
+}
+
+@font-face {
+    font-family: Unbound-reguler;
+    src: url(./assets/fonts/Unbounded-Regular.ttf);
+}
+
+@font-face {
+    font-family: Unbound-semibold;
+    src: url(./assets/fonts/Unbounded-SemiBold.ttf);
+}
