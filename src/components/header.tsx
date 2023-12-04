@@ -3,6 +3,11 @@ import logo from '../assets/BookesS.svg';
 // import { useNavigate } from "react-router-dom";
 const Header = () => {
     const navigate = useNavigate();
+
+    const logout = () => {
+        localStorage.removeItem('token')
+        navigate('/')
+    }
     return(
         <label className="p-5 animated-header" style={{fontFamily: "Unbound-reguler"}}>
             <div className="flex flex-row items-center justify-between mx-7">
@@ -29,7 +34,7 @@ const Header = () => {
                     </button>
                 </td>
                 <td className="text-xl ml-48">
-                    <button onClick={()=> navigate('/')}>
+                    <button onClick={logout}>
                         Logout
                     </button>
                 </td>

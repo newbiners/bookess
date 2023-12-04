@@ -6,16 +6,18 @@ import { useState } from 'react';
 import Controller from './controller';
 const Signin = () => {
     const [alert, setAlert] = useState<string>('');
-    const { setImage, setUser, setEmail, setPassword, image, btnSignin } = Controller()
+    const { setImage, setUser, setEmail, setPassword, image, btnSignin, data } = Controller()
     const navigate = useNavigate();
     console.log(image && image.target.files[0], "cek image")
-    const btnHendle = async(event: React.FormEvent) => {
+    const btnHendle = async (event: React.FormEvent) => {
         event.preventDefault();
-      const data =  btnSignin()
-      if(!data){
-        return setAlert('data not defind')
-      }
-      navigate('/')
+         btnSignin()
+        console.log(data, "sigin")
+        if (!data) {
+            return setAlert('email sudah ada')
+        } else {
+            navigate('/')
+        }
     }
     return (
         <LayoutBackground typePage='login'>
@@ -25,15 +27,15 @@ const Signin = () => {
                         <div className='flex justify-center'>
                             <div className='h-20 w-20  rounded-xl flex justify-center z-30 overflow-hidden'>
                                 {image ?
-                                <div className='relative  rounded-xl overflow-hidden'>
-                                    <img src={URL.createObjectURL(image.target.files[0])} style={{ width: '100%', height: '100%'}} />
-                                    <input type='file' style={{ width: '100%', height: '100%', backgroundColor: "yellow", opacity: 0 }} className='absolute top-0' onChange={setImage} />
-                                </div>
+                                    <div className='relative  rounded-xl overflow-hidden'>
+                                        <img src={URL.createObjectURL(image.target.files[0])} style={{ width: '100%', height: '100%' }} />
+                                        <input type='file' style={{ width: '100%', height: '100%', backgroundColor: "yellow", opacity: 0 }} className='absolute top-0' onChange={setImage} />
+                                    </div>
                                     :
                                     <div className='h-full w-full bg-blue-gray-50'>
-                                    <input type='file' style={{ width: '100%', height: '100%', opacity: 0 }} onChange={setImage} />
+                                        <input type='file' style={{ width: '100%', height: '100%', opacity: 0 }} onChange={setImage} />
                                     </div>
-                                 }
+                                }
                             </div>
                         </div>
                         <div>
@@ -48,7 +50,7 @@ const Signin = () => {
                         <div className='flex justify-center mt-5'>
                             <button onClick={() => navigate('/')}>log in</button>
                         </div>
-                        <p>{alert}</p>
+                        <p className='text-center'>{alert}</p>
                     </form>
                 </LayoutForm>
             </div>

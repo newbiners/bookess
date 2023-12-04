@@ -16,6 +16,7 @@ const Controller = () => {
                 password: password
             })
             // setData(data)
+            console.log(data, "data data")
             localStorage.setItem('token', data.data.token)
         } catch (error) {
             console.log(error, "error")

@@ -6,9 +6,9 @@ const Controller = () => {
     const [email, setEmail] = useState<string>('')
     const [user, setUser] = useState<string>('')
     const [password, setPassword] = useState<string>('')
-    const [image, setImage] = useState<any>()
+    const [image, setImage] = useState<any>();
+    const [data, setData] = useState<any>('');
     const btnSignin = async() => {
-        console.log(image.target.files[0], "target")
         const urlImg = image ? image.target.files[0] : null
         try{
             const file = new FormData()
@@ -24,7 +24,7 @@ const Controller = () => {
                     "Content-Type": "multipart/form-data"
                 }
             })
-            return data.data.email
+            setData(data)
         }catch(error){
             console.log(error)
         }
@@ -36,7 +36,8 @@ const Controller = () => {
         setUser,
         setImage,
         image,
-        btnSignin
+        btnSignin,
+        data
     }
 }
 
