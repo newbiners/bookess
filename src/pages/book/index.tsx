@@ -33,8 +33,8 @@ console.log(id, "id")
 
     const buttonCek = async() => {
         // event.preventDefault();
-        addComment(data.data._id, value)
-        ViewComment(data.data._id)
+       await addComment(data.data._id, value)
+       await ViewComment(data.data._id)
     }
     return (
         <LayoutBackground>

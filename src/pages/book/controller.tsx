@@ -1,6 +1,6 @@
 import { useState, useRef } from "react"
 import axios from "axios";
-import { API_URL } from "../api";
+import { API_URL,API_dev } from "../api";
 const Controller = () => {
     const [data, setData] = useState<any>();
     const [loveAct, setLoveAct] = useState<Boolean>(false)
@@ -12,7 +12,7 @@ const Controller = () => {
         try {
             if (bookId && bookId !== prevIdRef.current) {
                 prevIdRef.current = bookId;
-                const { data } = await axios.get(API_URL + "/books/" + bookId, { headers: { Authorization: token } });
+                const { data } = await axios.get(API_dev + "/books/" + bookId, { headers: { Authorization: token } });
                 setData(data);
             }
         } catch (error) {

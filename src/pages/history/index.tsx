@@ -15,7 +15,7 @@ const History = () => {
     const token = localStorage.getItem('token')
     return (
         <LayoutBackground>
-            <div className="h-[100vh]">
+            <div>
                 {token ?
                     <div className="mx-9 mt-10  grid grid-cols-3 animated-header gap-9">
                         {data.map((item: any) => (

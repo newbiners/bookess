@@ -1,18 +1,16 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Document, Page } from 'react-pdf';
-import DataFile from './The Psychology of Money.pdf';
 import plus from '../../assets/plus.svg';
 import minus from '../../assets/minus.svg';
 import Controller from './controller';
 import { useParams } from 'react-router-dom';
-import { API_URL } from '../api';
 function BookDetails() {
   const {id} = useParams()
   const {getData, data} = Controller()
   const [numPages, setNumPages] = useState(null);
-  const [pageNumber, setPageNumber] = useState(1);
+  const [persenHight, setPersentHight] = useState<number>(0);
   const [zoom, setZoom] = useState(1000);
-  const [height, setHeight] = useState<number | null>(null); // Menggunakan tipe number atau null
+  const [height, setHeight] = useState<number | null>(1);  // Menggunakan tipe number atau null
 const ref = useRef<HTMLDivElement>(null); //
 const [present, setPresent] = useState(20)
 
@@ -35,10 +33,9 @@ const zoomIn = () => {
   }
   const [scrollPosition, setScrollPosition] = useState(0);
 
-
   const handleScroll = () => {
     const position = window.scrollY;
-    setScrollPosition(position);
+      setScrollPosition(position);
 };
 
 
@@ -56,16 +53,17 @@ getData(id!)
 },[id])
 
 useEffect(() => {
-  const number = ref.current
-  const data = number!.offsetHeight
-  setHeight(data)
+  if(scrollPosition > height!){
+    setHeight(scrollPosition)
+    }
+  const persentHight = (scrollPosition/height!)* 100
+  setPersentHight(persentHight)
 },[scrollPosition])
 
 
-
-// console.log(scrollPosition, "scroll")
+console.log(scrollPosition, "scroll", height)
   return (
-    <div className='flex flex-col items-center relative' ref={ref}>
+    <div className='flex flex-col items-center relative'>
       <div className='flex fixed right-10 items-center gap-4 top-6 z-10'>
       <button onClick={() => zoomIn()} className='h-10 w-10 bg-orange-200 flex items-center justify-center rounded-full'>
         <img src={plus} className='h-9 p-2'/>
@@ -75,8 +73,8 @@ useEffect(() => {
       <img src={minus} className='h-9 p-2'/>
       </button>
       </div>
-      <div className='w-[90%] h-1 bg-slate-300 fixed overflow-auto z-10 bottom-10'>
-        <div className='h-full bg-cyan-700 ' style={{width: `${((scrollPosition/(height!+70))*100)}%`}} />
+      <div className='w-[90%] h-1 bg-slate-300 fixed overflow-auto z-10 bottom-10 bg-blue-gray-300'>
+        <div className='h-full bg-cyan-700 ' style={{width: `${persenHight}%`}} />
       </div>
       <div >
         {Array.apply(null, Array(numPages)).map((value, index) => (
@@ -86,9 +84,6 @@ useEffect(() => {
             </Document>
           </div>
         ))}
-        <p>
-          Page {pageNumber} of {numPages}
-        </p>
       </div>
     </div>
   );

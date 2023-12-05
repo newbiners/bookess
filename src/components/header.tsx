@@ -4,8 +4,11 @@ import logo from '../assets/BookesS.svg';
 const Header = () => {
     const navigate = useNavigate();
 
+    const token = localStorage.getItem('token');
     const logout = () => {
-        localStorage.removeItem('token')
+        if(!token){
+            localStorage.removeItem('token')
+        }
         navigate('/')
     }
     return(
@@ -35,7 +38,7 @@ const Header = () => {
                 </td>
                 <td className="text-xl ml-48">
                     <button onClick={logout}>
-                        Logout
+                        {token ? 'logout' : 'login'}
                     </button>
                 </td>
             </tr>

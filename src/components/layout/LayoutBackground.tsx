@@ -71,9 +71,11 @@ const LayoutBackground: React.FC<LayoutBackgroundProps> = ({ children, setPositi
             typePage === 'login' ?
             <div>{children}</div>
             :
-              <div >
+              <div className="flex flex-col justify-between h-[100vh]">
+                <div>
                 <Header />
                 {children}
+                </div>
                 <Footer />
               </div> 
           }
