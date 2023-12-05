@@ -12,7 +12,7 @@ const Controller = () => {
         try {
             if (bookId && bookId !== prevIdRef.current) {
                 prevIdRef.current = bookId;
-                const { data } = await axios.get(API_dev + "/books/" + bookId, { headers: { Authorization: token } });
+                const { data } = await axios.get(API_URL + "/books/" + bookId, { headers: { Authorization: token } });
                 setData(data);
             }
         } catch (error) {
