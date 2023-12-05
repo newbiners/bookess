@@ -60,8 +60,6 @@ useEffect(() => {
   setPersentHight(persentHight)
 },[scrollPosition])
 
-
-console.log(scrollPosition, "scroll", height)
   return (
     <div className='flex flex-col items-center relative'>
       <div className='flex fixed right-10 items-center gap-4 top-6 z-10'>

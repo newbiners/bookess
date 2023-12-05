@@ -34,12 +34,7 @@ const MenuBooks = () => {
         }
         setPosition(posisi)
     }, [posisi])
-    // const handleChange = (event: any) => {
-    //     const newValue = event.target.value;
-    //     setSearch(newValue);
-    //     console.log(newValue)
-    //     // onChange(newValue);
-    //   };
+
     useEffect(() => {
         getSearch(search)
     }, [search])

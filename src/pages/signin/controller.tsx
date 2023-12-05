@@ -12,7 +12,6 @@ const Controller = () => {
         const urlImg = image ? image.target.files[0] : null
         try{
             const file = new FormData()
-            console.log("cek")
             file.append("email", email);
             file.append('name', user);
             file.append('image', urlImg);

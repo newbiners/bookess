@@ -6,7 +6,7 @@ const Header = () => {
 
     const token = localStorage.getItem('token');
     const logout = () => {
-        if(!token){
+        if(token){
             localStorage.removeItem('token')
         }
         navigate('/')

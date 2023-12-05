@@ -9,7 +9,6 @@ const Controller = () => {
             const { data } = await axios.get(API_URL + "/history", {
                 headers: { Authorization: token }
             })
-            console.log(data.data)
             setData(data.data)
         } catch (error) {
             console.log(error)

@@ -12,7 +12,6 @@ const Signin = () => {
     const btnHendle = async (event: React.FormEvent) => {
         event.preventDefault();
          btnSignin()
-        console.log(data, "sigin")
         if (!data) {
             return setAlert('email sudah ada')
         } else {
@@ -44,7 +43,7 @@ const Signin = () => {
                             <InputItem title='password' setChange={setPassword} />
                         </div>
                         <div className='flex justify-between mt-10'>
-                            <button className='bg-orange-600 h-12 w-44 rounded-xl'>Signin</button>
+                            <button className='bg-orange-600 h-12 w-44 rounded-xl'>Singin</button>
                             <button className='h-12 w-44' onClick={() => navigate('/books')}>skip</button>
                         </div>
                         <div className='flex justify-center mt-5'>

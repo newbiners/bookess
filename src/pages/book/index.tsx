@@ -20,16 +20,13 @@ const Books = () => {
         }
        
     }, [id])
-console.log(id, "id")
     useEffect(() => {
         if(data){
-            console.log(data.data.writer_name, "name writter")
             cekLoveAct(data.data._id)
             ViewComment(data.data._id)
         }
     },[data])
 
-    console.log(dataComment, "data commnet")
 
     const buttonCek = async() => {
         // event.preventDefault();

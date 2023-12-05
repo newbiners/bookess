@@ -23,18 +23,15 @@ const Controller = () => {
     const addLove = async (id: string) => {
 
         try {
-            console.log(id, "id");
             const token = localStorage.getItem('token');
 
             if (id && token) {
                 if (!loveAct) {
-                    console.log(id, "id")
                     const { data } = await axios.post(
                         API_URL + '/love-books',
                         { book_id: id },
                         { headers: { Authorization: token } }
                     );
-                    console.log(data)
                     setLoveAct(true)
                 } else {
                     await axios.delete(
@@ -57,8 +54,6 @@ const Controller = () => {
                 API_URL + '/love-books/' + id,
                 { headers: { Authorization: token } }
             );
-            // console.log(data.data.data)
-            console.log(data.data.data, "data love")
             setLoveAct(data.data.data)
         } catch (error) {
             console.log(error)
@@ -77,8 +72,6 @@ const Controller = () => {
             },
             { headers: { Authorization: token } }
             );
-
-            console.log(data)
         } catch (error) {
             console.log(error)
         }
@@ -100,7 +93,6 @@ const Controller = () => {
     const getDataBook = async(name: string) => {
         try{
             const {data} = await axios.get(API_URL+'/books?book_name='+name)
-            console.log(data)
         }catch(error) {
             console.log(error)
         }

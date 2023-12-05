@@ -23,7 +23,6 @@ const Profile = () => {
     useEffect(() => {
         getData();
     }, [])
-    console.log(data, "data")
     return (
         <LayoutBackground>
             {data.length == 0 ?
