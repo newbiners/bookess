@@ -1,20 +1,38 @@
 /* eslint-disable react/no-unknown-property */
 
 import './App.css'
-import { Canvas } from '@react-three/fiber'
-import { Book } from './model/book'
-function App() {
+import {
+  createBrowserRouter,
+  RouterProvider,
+  Route,
+  Link,
+} from "react-router-dom";
+import BookScreen from './components/3d/bookScreen'
+import { Home, Book, Collection, ReadBook } from './pages';
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Home />
+  },
+  {
+    path: "/book",
+    element: <Book />
+  },
+  {
+    path: "/collection",
+    element: <Collection />
+  },
+  {
+    path: "/read-book",
+    element: <ReadBook />
+  }
+])
 
+
+function App() {
   return (
     <main className='h-screen w-full'>
-     <Canvas
-     camera={{near: 0.1, far: 1000}}>
-     <directionalLight intensity={10} position={[20, 0, 10]}/>
-     <ambientLight intensity={0.5}/>
-     <hemisphereLight intensity={20}/>
-      
-      <Book rotation={[20.5, -0.2, 0]}/>
-     </Canvas>
+      <RouterProvider router={router} />
     </main>
   )
 }
